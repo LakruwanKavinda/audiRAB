@@ -131,6 +131,7 @@ def get_messages(request):
     View for retrieving messages.
     """
     if request.method == 'GET':
+
         messages = Message.objects.filter(receiver=request.user)
         message_data = [{'sender': message.sender.username, 'content': message.content,
                          'timestamp': message.timestamp} for message in messages]
