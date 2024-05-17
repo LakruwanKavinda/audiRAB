@@ -70,7 +70,9 @@ def search_pdf(request):
             results = PDFFile.objects.filter(Q(name__icontains=query))
             # You can add additional search criteria here
             # For example, search by author, genre, etc.
-            return JsonResponse({'results': [{'name': pdf.name, 'url': pdf.file.url} for pdf in results]})
+            results_data = [{'name': pdf.name, 'url': pdf.file.url}
+                            for pdf in results]
+            return JsonResponse({'results': results_data})
         else:
             return JsonResponse({'message': 'Please provide a search query'}, status=400)
     else:
