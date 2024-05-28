@@ -12,7 +12,7 @@ from django.contrib.auth.decorators import login_required
 # Import the PDFFile and Message models from the correct module
 from .models import PDFFile, Message
 
-
+#signup
 def signup(request):
     """
     View for user signup.
@@ -28,7 +28,7 @@ def signup(request):
     else:
         return JsonResponse({'message': 'Method not allowed'}, status=405)
 
-
+#login
 def user_login(request):
     """
     View for user login.
@@ -45,7 +45,7 @@ def user_login(request):
     else:
         return JsonResponse({'message': 'Method not allowed'}, status=405)
 
-
+#pdf upload
 @csrf_exempt
 def upload_pdf(request):
     """
@@ -59,7 +59,7 @@ def upload_pdf(request):
     else:
         return JsonResponse({'message': 'Invalid request'}, status=400)
 
-
+#search pdf from library
 def search_pdf(request):
     """
     View for searching PDF files.
@@ -78,7 +78,7 @@ def search_pdf(request):
     else:
         return JsonResponse({'message': 'Invalid request'}, status=400)
 
-
+#generate stories from AI
 def generate_story(request):  # Remove the request argument
     """
     View for generating a story.
@@ -100,7 +100,7 @@ def generate_story(request):  # Remove the request argument
     else:
         return JsonResponse({'message': 'Invalid request'}, status=400)
 
-
+#view pdf
 def view_pdf(pdf_id):
     """
     View for viewing a PDF file.
@@ -109,7 +109,7 @@ def view_pdf(pdf_id):
     return JsonResponse({'url': pdf.file.url})
 
 
-# chat
+#chat option send the messages
 @login_required
 def send_message(request):
     """
@@ -126,7 +126,7 @@ def send_message(request):
     else:
         return JsonResponse({'message': 'Invalid request'}, status=400)
 
-
+#chat option inbox the messages
 @login_required
 def get_messages(request):
     """
