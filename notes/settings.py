@@ -87,6 +87,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'audio_lab',
+
     }
 }
 
