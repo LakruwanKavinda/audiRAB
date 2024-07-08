@@ -86,8 +86,7 @@ WSGI_APPLICATION = 'notes.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'audio_lab',
-
+        'NAME': 'audio_lab'
     }
 }
 
