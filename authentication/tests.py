@@ -14,5 +14,10 @@ class AudiobookModelTestCase(TestCase):
             audio_file="test_audio.mp3",
         )
 
-
+    def test_audiobook_creation(self):
+        # Test the audiobook is created successfully
+        self.assertEqual(self.audiobook.title, "Sample Audiobook")
+        self.assertEqual(self.audiobook.author, "John Doe")
+        self.assertEqual(self.audiobook.narrator, "Jane Smith")
+     
 
