@@ -19,5 +19,8 @@ class AudiobookModelTestCase(TestCase):
         self.assertEqual(self.audiobook.title, "Sample Audiobook")
         self.assertEqual(self.audiobook.author, "John Doe")
         self.assertEqual(self.audiobook.narrator, "Jane Smith")
-     
+        self.assertEqual(self.audiobook.duration, timedelta(hours=1, minutes=30))
+        self.assertEqual(self.audiobook.audio_file, "test_audio.mp3")
+
+
 
