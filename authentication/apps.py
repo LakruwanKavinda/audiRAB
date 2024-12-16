@@ -1,3 +1,4 @@
+
 """
 Module for configuring the authentication app.
 """
