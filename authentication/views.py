@@ -9,7 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
-# Import the PDFFile and Message models from the correct module
+# Import the PDFFile and Message models
 from .models import PDFFile, Message
 
 #signup
@@ -68,8 +68,6 @@ def search_pdf(request):
         query = request.GET.get('query')
         if query:
             results = PDFFile.objects.filter(Q(name__icontains=query))
-            # You can add additional search criteria here
-            # For example, search by author, genre, etc.
             results_data = [{'name': pdf.name, 'url': pdf.file.url}
                             for pdf in results]
             return JsonResponse({'results': results_data})
@@ -86,11 +84,11 @@ def generate_story(request):  # Remove the request argument
     if request.method == 'POST':
         topic = request.POST.get('topic')
         if topic:
-            # Assuming openai is properly defined elsewhere
+            # openai defined
             response = openai.Completion.create(
-            engine="text-davinci-003",  # Choose the GPT-3 model you prefer
+            engine="text-davinci-003",  # Choose the GPT-3 
             prompt=f"Generate a story about {topic}.",
-            max_tokens=200  # Adjust the maximum length of the generated story
+            max_tokens=200  # Adjust maximum length of generated story
             )
             story = response.choices[0].text.strip()
             story = "Story generation is disabled temporarily."
