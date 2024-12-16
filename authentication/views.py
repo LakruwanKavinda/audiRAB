@@ -87,12 +87,12 @@ def generate_story(request):  # Remove the request argument
         topic = request.POST.get('topic')
         if topic:
             # Assuming openai is properly defined elsewhere
-            # response = openai.Completion.create(
-            #     engine="text-davinci-003",  # Choose the GPT-3 model you prefer
-            #     prompt=f"Generate a story about {topic}.",
-            #     max_tokens=200  # Adjust the maximum length of the generated story
-            # )
-            # story = response.choices[0].text.strip()
+            response = openai.Completion.create(
+            engine="text-davinci-003",  # Choose the GPT-3 model you prefer
+            prompt=f"Generate a story about {topic}.",
+            max_tokens=200  # Adjust the maximum length of the generated story
+            )
+            story = response.choices[0].text.strip()
             story = "Story generation is disabled temporarily."
             return JsonResponse({'story': story})
         else:
