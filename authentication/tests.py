@@ -22,5 +22,7 @@ class AudiobookModelTestCase(TestCase):
         self.assertEqual(self.audiobook.duration, timedelta(hours=1, minutes=30))
         self.assertEqual(self.audiobook.audio_file, "test_audio.mp3")
 
-
+    def test_audiobook_string_representation(self):
+        # Test the string representation
+        self.assertEqual(str(self.audiobook), "Sample Audiobook")
 
